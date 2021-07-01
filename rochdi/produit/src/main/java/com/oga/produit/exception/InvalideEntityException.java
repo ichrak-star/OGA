@@ -9,7 +9,7 @@ public class InvalideEntityException extends RuntimeException{
     @Getter
     private  ErrorCode errorCode;
     @Getter
-    private List<String> errors;
+    private  List<String> errors;
 
     public InvalideEntityException(String messgae){
         super(messgae);
