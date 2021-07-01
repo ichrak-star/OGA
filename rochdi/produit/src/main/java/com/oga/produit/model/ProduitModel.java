@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -24,4 +25,5 @@ public class ProduitModel {
     private Timestamp dateModification;
 
     private CategoryModel categoryModel ;
+
 }
