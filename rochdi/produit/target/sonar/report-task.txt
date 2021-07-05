@@ -1,0 +1,6 @@
+projectKey=ecommerce.com:ecommerce-mysql
+serverUrl=http://localhost:9000
+serverVersion=8.9.1.44547
+dashboardUrl=http://localhost:9000/dashboard?id=ecommerce.com%3Aecommerce-mysql
+ceTaskId=AXph9Fsn5J6j9t3EI0hx
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXph9Fsn5J6j9t3EI0hx
