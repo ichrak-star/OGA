@@ -5,6 +5,7 @@ import com.oga.produit.exception.EntityNotFoundException;
 import com.oga.produit.model.ProduitModel;
 import io.swagger.annotations.Api;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,11 @@ public interface ProduitApi {
     @GetMapping("/pagination")
     public ResponseEntity<Page<Produit>> findAllPaginator(@RequestParam(name = "page", defaultValue = "0") int page,
                                                     @RequestParam(name = "size", defaultValue = "4") int size) ;
+
+    @GetMapping("/pagination/category/{idCategory}")
+    public ResponseEntity<Page<Produit>> getAllPageByCategory(@RequestParam(name = "page", defaultValue = "0") int page,
+                                              @RequestParam(name = "size", defaultValue = "4") int size,
+                                              @PathVariable Long idLCategory);
 
 
     @PutMapping("/{idProduit}/add_category_to_produit/{idCategory}")

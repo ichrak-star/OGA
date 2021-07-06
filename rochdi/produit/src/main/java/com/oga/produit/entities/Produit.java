@@ -35,7 +35,7 @@ public class Produit {
     private Timestamp dateModification;
 
     //@JsonIgnoreProperties(value="FK_CATEGORY", allowSetters=true,allowGetters = false)
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "FK_CATEGORY",insertable = true,updatable = true)
     private Category category ;
 

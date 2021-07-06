@@ -122,6 +122,12 @@ import java.util.List;
     }
 
     @Override
+    public Page<Produit> getAllPageByCategory(Pageable pageable, Long idCategory) {
+        Page<Produit> produitPage = (Page<Produit>) produitRepository.findByCategory(categoryRepository.getOne(idCategory));
+        return new PageImpl<>(produitPage.getContent(), pageable, produitPage.getTotalElements());
+    }
+
+    @Override
     public List<Produit> getAllByCategory(Long idCategory) {
         return produitRepository.findByCategory(categoryRepository.getOne(idCategory));
     }

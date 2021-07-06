@@ -19,7 +19,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @RequestMapping("/produit")
-
+@CrossOrigin
 @RestController
 public class ProduitController implements ProduitApi {
 
@@ -44,13 +44,12 @@ public class ProduitController implements ProduitApi {
     public ResponseEntity delete(Long id)  {
         return ResponseEntity.status(HttpStatus.OK).body(produitService.delete(id));
     }
-  //  @CrossOrigin(origins = "http://localhost:4200")
     @Override
     public ResponseEntity<Produit> getOne(Long id) throws EntityNotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(produitService.getOne(id));
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @Override
     public ResponseEntity<List<Produit>> getAll() {
         return ResponseEntity.status(HttpStatus.OK).body(produitService.getAll());
@@ -59,6 +58,12 @@ public class ProduitController implements ProduitApi {
     @Override
     public ResponseEntity<Page<Produit>> findAllPaginator(int page, int size) {
         Page<Produit> entitys = produitService.getAllPeage(PageRequest.of(page, size));
+        return ResponseEntity.status(HttpStatus.OK).body(entitys);
+    }
+
+    @Override
+    public ResponseEntity<Page<Produit>> getAllPageByCategory(int page, int size, Long idLCategory) {
+        Page<Produit> entitys = produitService.getAllPageByCategory(PageRequest.of(page, size),idLCategory);
         return ResponseEntity.status(HttpStatus.OK).body(entitys);
     }
 
@@ -76,6 +81,7 @@ public class ProduitController implements ProduitApi {
     public ResponseEntity<List<Produit>> getAllByCategory(Long idCategory) {
         return ResponseEntity.status(HttpStatus.OK).body(produitService.getAllByCategory(idCategory));
     }
+
 
     @Override
     public ResponseEntity<Produit> ajouterProduitParCategory(ProduitModel entity, Long idCategory) {

@@ -1,5 +1,6 @@
 package com.oga.produit.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
@@ -34,7 +35,7 @@ public class Category {
     private Timestamp dateModification;
 
     @JsonIgnoreProperties(value={"category"}, allowSetters=true,allowGetters = false)
-
+    @JsonIgnore
     @OneToMany(mappedBy = "category",fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Produit> produits ;
 
