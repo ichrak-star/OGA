@@ -6,18 +6,14 @@ import com.oga.produit.mapper.ProduitMapper;
 import com.oga.produit.model.ProduitModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
 public class ProduitMapperImpl implements ProduitMapper {
 
-
     @Autowired
     private CategoryMapper categoryMapper;
-
-
 
     @Override
     public ProduitModel toModel(Produit entity) {

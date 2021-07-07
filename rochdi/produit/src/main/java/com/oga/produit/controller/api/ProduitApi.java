@@ -35,10 +35,6 @@ public interface ProduitApi {
     public ResponseEntity<Page<Produit>> findAllPaginator(@RequestParam(name = "page", defaultValue = "0") int page,
                                                     @RequestParam(name = "size", defaultValue = "4") int size) ;
 
-    @GetMapping("/pagination/category/{idCategory}")
-    public ResponseEntity<Page<Produit>> getAllPageByCategory(@RequestParam(name = "page", defaultValue = "0") int page,
-                                              @RequestParam(name = "size", defaultValue = "4") int size,
-                                              @PathVariable Long idLCategory);
 
 
     @PutMapping("/{idProduit}/add_category_to_produit/{idCategory}")

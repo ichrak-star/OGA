@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Timestamp;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -22,14 +21,19 @@ class CategoryServiceImplTest {
 
     @Test
     void create() {
-        CategoryModel categoryModel = CategoryModel.builder()
-                .nom("Cat Test")
-                .dateCreation(new Timestamp(System.currentTimeMillis()))
-                .dateModification(null)
-                .qte(5.8)
-                .build();
-        Category category = categoryService.create(categoryModel);
+//        CategoryModel categoryModel = CategoryModel.builder()
+//                .nom("Cat Test")
+//                .dateCreation(new Timestamp(System.currentTimeMillis()))
+//                .dateModification(null)
+//                .qte(5.8)
+//                .build();
+//        Category category = categoryService.create(categoryModel);
 
+CategoryModel cat = new CategoryModel();
+cat.setNom("mortadhaa");
+cat.setQte(55.33);
+        System.out.println(cat.getNom());
+categoryService.create(cat);
     }
 
 

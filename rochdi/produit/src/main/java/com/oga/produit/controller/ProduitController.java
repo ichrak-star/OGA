@@ -61,11 +61,6 @@ public class ProduitController implements ProduitApi {
         return ResponseEntity.status(HttpStatus.OK).body(entitys);
     }
 
-    @Override
-    public ResponseEntity<Page<Produit>> getAllPageByCategory(int page, int size, Long idLCategory) {
-        Page<Produit> entitys = produitService.getAllPageByCategory(PageRequest.of(page, size),idLCategory);
-        return ResponseEntity.status(HttpStatus.OK).body(entitys);
-    }
 
     @Override
     public ResponseEntity<Produit> addCategoryToProduit(Long idProduit, Long idCategory) {
